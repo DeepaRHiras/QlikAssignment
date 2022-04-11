@@ -75,6 +75,26 @@ describe('Explore Demo Apps and Tutorials', () => {
         cy.get('[data-testmeta="Demo App - Beginner\'s tutorial"]').contains('Demo App - Beginner\'s tutorial')
         cy.get('[data-testid="gettingStarted"]').click()
     })
+    it('Analyze sample data', () => {
+        cy.get('body').then($element => {
+            if ($element.find('#onetrust-accept-btn-handler').length > 0) {
+                cy.get('#onetrust-accept-btn-handler').click()
+            }
+        })
+        cy.get('.navTertiary__trigger > .navTertiary__hd').click()
+        cy.get('.navTertiary__menu > .navTertiary__links > :nth-child(2) > .navTertiary__link > .navTertiary__hd').click()
+        cy.wait(5000)
+        cy.get('[data-testid="gettingStarted"]').click()
+        cy.get('#welcome-sampledata').click()
+        cy.wait(5000)
+        cy.url().should('include', '/state/analysis')
+        cy.wait(5000)
+        //cy.get('[data-testid="cognitiveadvisor-tour-popover-exit"] > .TdHqDP-sense-client1162 > i > svg > path').click()
+        cy.get('[data-testid="cao_field_City_item_checkbox"]').check()
+        cy.get('[data-testid="cao_field_Sales_item_checkbox"]').check()
+        cy.wait(10000)
+        cy.get('[data-testid="cognitiveadvisor-tour-popover-exit"]').click()
+    })
 
     afterEach(() => {
         //Code to Handle the Sesssions in cypress.
