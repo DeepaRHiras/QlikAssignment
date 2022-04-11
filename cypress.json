@@ -1,0 +1,9 @@
+{
+    "baseUrl": "https://www.qlik.com/us/",
+    "chromeWebSecurity": false,
+    "experimentalShadowDomSupport": true,
+    "viewportWidth": 2000,
+    "viewportHeight": 1500,
+    "watchForFileChanges" : false,
+    "defaultCommandTimeout":30000
+}
